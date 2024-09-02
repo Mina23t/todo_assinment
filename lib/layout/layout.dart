@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_assinment/layout/provider.dart';
+import 'package:todo_assinment/core/providers/provider.dart';
 
 class Layout extends StatelessWidget {
   static const String routeName = "layout_screen";
@@ -19,20 +18,21 @@ class Layout extends StatelessWidget {
             return Scaffold(
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
-              floatingActionButton: FloatingActionButton(
+              floatingActionButton: FloatingActionButton(backgroundColor:Color(0xff5D9CEC) ,
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide(color: Colors.white, width: 4)),
+                    borderSide:
+                        const BorderSide(color: Colors.white, width: 4)),
                 onPressed: () {},
                 child: const Icon(Icons.add),
               ),
               bottomNavigationBar: ClipRRect(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
                 ),
                 child: BottomAppBar(
-                  shape: CircularNotchedRectangle(),
+                  shape: const CircularNotchedRectangle(),
                   notchMargin: 6,
                   color: Colors.white,
                   child: BottomNavigationBar(
@@ -51,7 +51,7 @@ class Layout extends StatelessWidget {
                           label: "tasks"),
                       BottomNavigationBarItem(
                           icon: Icon(
-                            Icons.settings,
+                            Icons.settings_outlined,
                             size: 35,
                           ),
                           label: "settings")
@@ -59,6 +59,7 @@ class Layout extends StatelessWidget {
                   ),
                 ),
               ),
+              body: provider.Screens[index],
             );
           }),
     );
